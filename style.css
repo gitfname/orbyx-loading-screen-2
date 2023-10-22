@@ -1,0 +1,172 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #000;
+  overflow: hidden;
+}
+
+div {
+  margin: auto;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  font: 10vw Righteous;
+  -webkit-animation: fade 8s 1;
+  animation: fade 8s 1;
+}
+
+div.animate span {
+  position: relative;
+  display: inline-block;
+  min-width: 0.5em;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: rotateY(25deg);
+  -webkit-animation: rotate 8s 1 forwards ease-in;
+  animation: rotate 8s 1 forwards ease-in;
+  color: black;
+}
+
+span:after,
+span:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: attr(class);
+  color: white;
+  z-index: -1;
+  -webkit-animation: shadow 8s 1 forwards;
+  animation: shadow 8s 1 forwards;
+}
+
+span:before {
+  transform: translateZ(-14px);
+}
+
+span:after {
+  transform: translateZ(-7px);
+}
+
+@-webkit-keyframes fade {
+  from {
+    transform: scale(1.2);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade {
+  from {
+    transform: scale(1.2);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    transform: rotateY(38deg);
+  }
+
+  50%,
+  100% {
+    color: #746853;
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    color: #867862;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(38deg);
+  }
+
+  50%,
+  100% {
+    color: white;
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    color: #867862;
+  }
+}
+
+@-webkit-keyframes shadow {
+  from {
+    color: shade(#867862, 50%);
+    text-shadow: 0 0 20px transparent;
+  }
+
+  25% {
+    color: #AFA695;
+  }
+
+  50%,
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    color: tint(#867862, 100%);
+  }
+}
+
+@keyframes shadow {
+  from {
+    color: shade(#867862, 50%);
+    color: shade(#867862, 50%);
+  }
+
+  25% {
+    color: #AFA695;
+  }
+
+  50%,
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    color: tint(#867862, 100%);
+  }
+}
+
+
+p.slogan {
+  font: 0.85rem Righteous;
+  font-weight: normal;
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  letter-spacing: 3px;
+  left: 10px;
+  opacity: 0;
+  animation-name: showSlogan;
+  animation-duration: 1s;
+  animation-delay: 4.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showSlogan {
+  to {
+    opacity: 1;
+  }
+}
